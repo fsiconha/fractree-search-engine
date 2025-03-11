@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Fractal Elasticsearch Engine Module
 
@@ -24,7 +25,8 @@ class FractalElasticsearchEngine:
             port (int): Elasticsearch port.
         """
         self.index_name = index_name
-        self.es = Elasticsearch([{'host': host, 'port': port}])
+        # Include the scheme parameter to resolve the missing argument error.
+        self.es = Elasticsearch([{'host': host, 'port': port, 'scheme': 'http'}])
         self.create_index()
 
     def create_index(self):
