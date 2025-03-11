@@ -12,7 +12,6 @@ app = Flask(__name__)
 # Create an instance of the search engine.
 engine = FractalElasticsearchEngine(index_name='fractal_search')
 
-
 @app.route('/index', methods=['POST'])
 def index_document():
     """
@@ -79,4 +78,4 @@ def search():
 
 if __name__ == '__main__':
     # Run the server on all interfaces at port 5000.
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
