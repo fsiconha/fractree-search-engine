@@ -1,10 +1,9 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from elastic_engine import FractalElasticsearchEngine
-
+from src.elastic_engine import FractalElasticsearchEngine
 
 class TestFractalElasticsearchEngine(unittest.TestCase):
-    @patch('elastic_engine.Elasticsearch')
+    @patch('src.elastic_engine.Elasticsearch')
     def test_create_index(self, mock_elasticsearch):
         """
         Test that the index is created if it does not exist.
@@ -18,7 +17,7 @@ class TestFractalElasticsearchEngine(unittest.TestCase):
         engine = FractalElasticsearchEngine(index_name='test_index')
         es_instance.indices.create.assert_called_once()
 
-    @patch('elastic_engine.Elasticsearch')
+    @patch('src.elastic_engine.Elasticsearch')
     def test_add_document(self, mock_elasticsearch):
         """
         Test adding a single document.
@@ -38,8 +37,8 @@ class TestFractalElasticsearchEngine(unittest.TestCase):
             index='test_index', id='doc1', body=expected_doc
         )
 
-    @patch('elastic_engine.helpers.bulk')
-    @patch('elastic_engine.Elasticsearch')
+    @patch('src.elastic_engine.helpers.bulk')
+    @patch('src.elastic_engine.Elasticsearch')
     def test_bulk_add_documents(self, mock_elasticsearch, mock_bulk):
         """
         Test bulk adding documents.
@@ -57,7 +56,7 @@ class TestFractalElasticsearchEngine(unittest.TestCase):
         # Verify that the helpers.bulk method was called once.
         mock_bulk.assert_called_once()
 
-    @patch('elastic_engine.Elasticsearch')
+    @patch('src.elastic_engine.Elasticsearch')
     def test_search_without_cluster_filter(self, mock_elasticsearch):
         """
         Test the search function without a cluster filter.
@@ -91,7 +90,7 @@ class TestFractalElasticsearchEngine(unittest.TestCase):
             results['hits']['hits'][0]['_source']['doc_id'], 'doc1'
         )
 
-    @patch('elastic_engine.Elasticsearch')
+    @patch('src.elastic_engine.Elasticsearch')
     def test_search_with_cluster_filter(self, mock_elasticsearch):
         """
         Test the search function when filtering by a specific cluster.
