@@ -25,7 +25,7 @@ $ poetry install
 #### Start Engine (on MacOS)
 ```
 $ colima start
-$ poetry run python3 src/server.py
+$ poetry run python3 fractree/server.py
 ```
 
 #### Populate Engine
