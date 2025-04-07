@@ -1,5 +1,5 @@
 [project]
-name = "fractree-search"
+name = "fractree"
 version = "0.1.0"
 description = "Chaotic search engine"
 authors = [
