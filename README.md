@@ -6,3 +6,38 @@
   </a>
 </p>
  
+## Installation
+
+This project uses **Poetry** to dependencies management.
+
+ #### Set Up
+```
+$ git clone https://github.com/fsiconha/fractree-search-engine.git
+$ cd fractree-search-engine
+$ pip install poetry
+$ poetry env use python3
+$ poetry env activate
+$ poetry install
+```
+
+## Usage
+
+#### Start Engine (on MacOS)
+```
+$ colima start
+$ poetry run python3 src/server.py
+```
+
+#### Populate Engine
+coming soon...
+
+#### Access Query Engine
+```
+http://127.0.0.1:5000/search?query=<your query>
+```
+
+##### Endpoint
+coming soon...
+
+##### Package
+coming soon...
