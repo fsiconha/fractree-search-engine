@@ -25,6 +25,8 @@ $ poetry install
 #### Start Engine (on MacOS)
 ```
 $ colima start
+$ docker run -p 9200:9200 -e "discovery.type=single-node" elasticsearch:7.17.0
+$ poetry run python3 utils/start_elasticsearch.py
 $ poetry run python3 fractree/server.py
 ```
 
